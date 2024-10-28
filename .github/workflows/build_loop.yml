@@ -293,6 +293,9 @@ jobs:
 
           # the final customization listed above CANNOT have a continuation character
           # more customizations can be pasted after this line
+          
+          # Module: File: Default Absorption Times 90, 3, 4
+          curl https://github.com/pinrut/Loop/commit/32523c700ea6259a481cfd01621679e80fa4aa99.patch | git apply -v --directory=Loop
 
       # Patch Fastlane Match to not print tables
       - name: Patch Match Tables
