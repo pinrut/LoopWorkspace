@@ -296,6 +296,9 @@ jobs:
           
           # Module: File: Default Absorption Times 90, 3, 4
           curl https://github.com/pinrut/Loop/commit/32523c700ea6259a481cfd01621679e80fa4aa99.patch | git apply -v --directory=Loop
+          
+          # Loopkit: Guardrail+Settings.swift: lower guardrails correction absolute lower bound now 75 instead of 86.1
+          curl https://github.com/pinrut/Loopkit/commit/79136ac49fb76f09e9a601a91afbe4562a7971fb.patch | git apply -v --directory=Loopkit
 
       # Patch Fastlane Match to not print tables
       - name: Patch Match Tables
