@@ -228,6 +228,25 @@ jobs:
           # Copy url from a GitHub commit or pull request and insert below, and remove the "#" sign from the beginning of the line to activate:
           #curl url_to_github_commit.patch | git apply --directory=LoopKit -v --whitespace=fix
 
+          # The lines below add the customizations listed using the CustomizationSelect script
+          # The "\" is a continuation character
+          #   the line following a "\" should not be blank
+          /bin/bash -c "$(curl -fsSL \
+          https://raw.githubusercontent.com/loopandlearn/lnl-scripts/main/CustomizationSelect.sh)" \
+          future_carbs_4h \
+          high_carb_limit \
+          watch_title \
+          meal_week \
+          profiles \
+          basal_lock \
+          no_auth
+
+          # Loop: Default Absorption Times 90, 3, 4
+          curl https://github.com/pinrut/Loop/commit/32523c700ea6259a481cfd01621679e80fa4aa99.patch | git apply -v --directory=Loop
+
+          # LoopKit: Guardrail+Settings.swift: correction range absolute lower bound 75 instead of 86.1
+          curl https://github.com/pinrut/LoopKit/commit/79136ac49fb76f09e9a601a91afbe4562a7971fb.patch | git apply -v --directory=LoopKit
+
           # Submodule xxxxx patches:
 
           # Add patches for customization of additional submodules by following the templates above, 
